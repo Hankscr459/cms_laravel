@@ -12,7 +12,7 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = Post::all();
+        $posts = auth()->user()->posts;
         // dd($posts);
         return view('admin.posts.index', ['posts' => $posts]);
     }
@@ -29,6 +29,9 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
+
+        $this->authorize('create', Post::class);
+
         $inputs = request()->validate([
             'title' => 'required|min:8|max:255',
             'post_image' => 'mimes:jpeg,bmp,png,jpg',
@@ -59,6 +62,9 @@ class PostController extends Controller
 
     public function destroy(Post $post, Request $request)
     {
+
+        $this->authorize('delete', $post);
+
         $post->delete();
 
         $request->session()->flash('message', 'Post was delete');
