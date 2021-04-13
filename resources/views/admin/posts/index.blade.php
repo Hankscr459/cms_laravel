@@ -6,8 +6,15 @@
 
         @if (session('message'))
             <div class="alert alert-danger">{{session('message')}}</div>
+
             @elseif (session('post-created-message'))
+
             <div class="alert alert-success">{{session('post-created-message')}}</div>
+
+            @elseif (session('post-update-message'))
+
+            <div class="alert alert-success">{{session('post-update-message')}}</div>
+
         @endif
 
         <!-- DataTales Example -->
