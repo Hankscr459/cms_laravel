@@ -2,7 +2,7 @@
 
 
     @section('content')
-        <h1>Create</h1>
+    <h1>Edit a Post</h1>
         <form method="POST" action="{{route('post.store')}}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
@@ -13,9 +13,12 @@
                     class="form-control"
                     id="title"
                     aria-describedby=""
-                    placeholder="Enter title">
+                    placeholder="Enter title"
+                    value="{{$post->title}}"
+                >
             </div>
             <div class="form-group">
+                <div><img height="100px" src="{{$post->post_image}}" alt=""></div>
                 <label for="file">File</label>
                 <input
                     type="file"
@@ -25,7 +28,7 @@
             </div>
             <div class="form-group">
                 <textarea name="body" class="form-control" id="body" cols="30" rows="10">
-
+                    {{$post->body}}
                 </textarea>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
