@@ -15,21 +15,21 @@
                   <thead>
                     <tr>
                       <th>Id</th>
+                      <th>Owner</th>
                       <th>Title</th>
                       <th>Image</th>
                       <th>Created At</th>
                       <th>Updated At</th>
-                      <th>Salary</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
                         <th>Id</th>
+                        <th>Owner</th>
                         <th>Title</th>
                         <th>Image</th>
                         <th>Created At</th>
                         <th>Updated At</th>
-                        <th>Salary</th>
                     </tr>
                   </tfoot>
                   <tbody>
@@ -38,6 +38,7 @@
 
                     <tr>
                         <td>{{$post->id}}</td>
+                        <td>{{$post->user->name}}</td>
                         <td>{{$post->title}}</td>
                         <td>
                             <img height="40px" src="{{$post->post_image}}" alt="" />
